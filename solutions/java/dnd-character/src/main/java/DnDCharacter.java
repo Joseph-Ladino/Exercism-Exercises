@@ -6,7 +6,17 @@ class DnDCharacter {
 
     int ability() {
         Random rn = new Random();
-        return rn.nextInt(16) + 3;
+        int total = 0, min = 7, roll;
+
+        for(int j = 0; j < 4; j++) {
+            roll = rn.nextInt(5) + 1;
+            min = Math.min(min, roll);
+            total += roll;
+        }
+        
+        total -= min;
+
+        return total;
     }
 
     int modifier(int input) {
