@@ -20,15 +20,6 @@ namespace roman_numerals {
 				}
 
 				num -= temp * i->first;
-			} else if (num >= 9) {
-				temp2 = i;
-				temp2++; temp2++;
-				temp = (num / temp2->first) * temp2->first;
-				if ((temp == 9 || temp % 2 == 0) && i->first - temp == temp2->first) {
-					out += temp2->second;
-					out += i->second;
-					num -= temp;
-				}
 			}
 		}
 		return out;
