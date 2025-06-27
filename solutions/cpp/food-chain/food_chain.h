@@ -8,7 +8,7 @@ namespace food_chain {
 
 	std::string sing();
 	std::string verse(int n);
-	std::string verses(int b, int e = 0);
+	std::string verses(int b, int e);
 
 }  // namespace food_chain
 
