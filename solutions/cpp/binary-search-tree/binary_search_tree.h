@@ -2,7 +2,6 @@
 #define BINARY_SEARCH_TREE_H
 
 #include <memory>
-#include <vector>
 #include <iterator>
 
 namespace binary_search_tree {
