@@ -1,7 +1,6 @@
 #if !defined(FOOD_CHAIN_H)
 #define FOOD_CHAIN_H
 #include <stdexcept>
-#include <vector>
 #include <string>
 
 namespace food_chain {
