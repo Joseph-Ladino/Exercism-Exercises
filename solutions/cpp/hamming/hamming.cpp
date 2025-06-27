@@ -6,8 +6,7 @@ namespace hamming {
 		if (s1.size() != s2.size()) throw std::domain_error("strings must be same length!");
 
 		int out = 0;
-
-		for (int i = 0; i < s1.size(); i++)	if(s1.compare(i, 1, s2.substr(i, 1)) != 0) out++;
+		for (int i = 0; i < s1.size(); i++)	if (s1[i] != s2[i]) out++;
 		
 		return out;
 	}
