@@ -3,7 +3,7 @@
 namespace robot_simulator {
 
 	Position Robot::get_position() const { return p; }
-	Bearing Robot::get_bearing() const { return b; }
+	Bearing Robot::get_bearing() const { return static_cast<Bearing>(b); }
 
 	void Robot::execute_sequence(std::string s) {
 		for (auto c : s) {
@@ -21,11 +21,11 @@ namespace robot_simulator {
 		}
 	}
 
-	void Robot::turn_right() { b = static_cast<Bearing>((static_cast<int>(b) + 1) % 4); }
-	void Robot::turn_left() { b = static_cast<Bearing>((static_cast<int>(b) + 3) % 4); }
+	void Robot::turn_right() { b = (b + 1) % 4; }
+	void Robot::turn_left() { b = (b + 3) % 4; }
 	
 	void Robot::advance() {
-		switch (static_cast<int>(b)) {
+		switch (b) {
 			case 0:
 				p.second++;
 				break;
@@ -42,12 +42,12 @@ namespace robot_simulator {
 
 	Robot::Robot() {
 		p = Position(0, 0);
-		b = Bearing::NORTH;
+		b = 0;
 	}
 
 	Robot::Robot(Position _p, Bearing _b) {
 		p = _p;
-		b = _b;
+		b = static_cast<int>(_b);
 	}
 
 }  // namespace robot_simulator

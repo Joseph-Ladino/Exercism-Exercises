@@ -15,7 +15,7 @@ namespace robot_simulator {
 
 	struct Robot {
 		Position p;
-		Bearing b;
+		int b;
 
 		Position get_position() const;
 		Bearing get_bearing() const;
