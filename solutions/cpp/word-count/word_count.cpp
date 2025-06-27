@@ -4,7 +4,7 @@ namespace word_count {
 
 	map<string, int> words(string str) {
 		map<string, int> out;
-        regex filter("(?!'.*')\\b[\\w']+\\b");
+        regex filter("\\b[\\w']+\\b");
         smatch res;
 
         while(regex_search(str, res, filter)) {
