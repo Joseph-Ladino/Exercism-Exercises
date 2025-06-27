@@ -4,8 +4,6 @@
 #include <string>
 #include <sstream>
 
-#define EXERCISM_RUN_ALL_TESTS
-
 namespace isbn_verifier {
 
     bool is_valid(std::string s);
