@@ -18,7 +18,7 @@ namespace largest_series_product {
 		return product;
 	}
 
-	int largest_product(std::string str, size_t span) {
+	int largest_product(std::string str, int span) {
 		int max_product = 0;
 		auto str_size = str.size();
 
@@ -32,7 +32,7 @@ namespace largest_series_product {
 			return string_product(str, 0, str_size);
 
 		for (size_t i = 0; i <= str_size - span; i++) {
-			int local_product = string_product(str, i, span);
+			int local_product = string_product(str, i, static_cast<size_t>(span));
 
 			if (local_product > max_product) max_product = local_product;
 		}
