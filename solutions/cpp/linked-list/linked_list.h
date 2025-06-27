@@ -133,7 +133,7 @@ namespace linked_list {
 			}
 		}
 
-		~List() {
+		inline ~List() {
 			Node* node;
 			while (head != nullptr) {
 				node = head;
