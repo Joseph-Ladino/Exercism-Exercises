@@ -18,15 +18,8 @@ namespace series {
 		std::vector<std::vector<int>> out;
 		auto nums = digits(s);
 			
-		for (size_t i = 0; i <= nums.size() - grouping; i++) {
-			std::vector<int> temp;
-			
-			for (size_t j = 0; j < grouping; j++)
-				temp.push_back(nums[i + j]);
-
-			out.push_back(temp);
-		}
-
+		for (int i = 0; i <= nums.size() - grouping; i++)
+			out.emplace_back(nums.begin() + i, nums.begin() + i + grouping);
 
 		return out;
 	}
