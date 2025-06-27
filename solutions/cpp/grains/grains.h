@@ -3,9 +3,9 @@
 
 namespace grains {
 
-	unsigned long long square(unsigned int num) { return 1ULL << num - 1; }
+	unsigned long long square(unsigned int num);
 
-	unsigned long long total() { return 0xffffffffffffffff; }
+	unsigned long long total(unsigned int num = 64);
 
 }  // namespace grains
 
