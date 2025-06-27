@@ -1,4 +1,5 @@
 #pragma once
+#include <type_traits>
 
 namespace chicken_coop {
 
@@ -8,8 +9,8 @@ namespace chicken_coop {
 
 		num_type egg_count = 0;
 
-		auto num_bits = sizeof(egg_positions) * 8;
-		for (auto i = 0; i < num_bits; i++) {
+		std::size_t num_bits = sizeof(egg_positions) * 8;
+		for (std::size_t i = 0; i < num_bits; i++) {
 			egg_count += (egg_positions >> i) & 1;
 		}
 
