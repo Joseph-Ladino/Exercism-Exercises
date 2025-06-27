@@ -8,7 +8,6 @@ namespace robot_name {
 	struct robot {
 		private:
 			std::string n;
-			unsigned int offset = 0;
 		
 		public:
 			void reset();
