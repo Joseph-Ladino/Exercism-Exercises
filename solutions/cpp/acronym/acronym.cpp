@@ -9,7 +9,7 @@ namespace acronym {
 		acr.push_back(str[0]);
 
 		for(size_t i = 1; i < str.size(); i++) {
-			if(str.at(i - size_t(1)) == ' ' || str.at(i - size_t(1)) == '-') {
+			if(str[i - 1] == ' ' || str[i - 1] == '-') {
 				acr.push_back(toupper(str[i]));
 			}
 		}
