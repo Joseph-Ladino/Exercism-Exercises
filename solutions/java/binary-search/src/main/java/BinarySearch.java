@@ -5,7 +5,7 @@ class BinarySearch {
     
     public int indexOf(int value) throws ValueNotFoundException {
 
-        if(list.size() == 0) throw new ValueNotFoundException("Value not in array");
+        if(list.isEmpty()) throw new ValueNotFoundException("Value not in array");
 
         int start = 0, end = list.size() - 1, key, keyVal;
 
@@ -21,7 +21,6 @@ class BinarySearch {
                 end = key;
             else
                 start = key + 1;
-            
         }
     }
 
