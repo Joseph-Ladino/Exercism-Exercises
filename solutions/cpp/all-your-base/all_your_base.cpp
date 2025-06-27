@@ -24,7 +24,7 @@ namespace all_your_base {
 	}
 	
 	std::vector<unsigned int> convert(unsigned int sb, std::vector<unsigned int> v, unsigned int eb) {
-		if (sb <= 1 || eb <= 1) throw std::invalid_argument("that's not gonna work buddy");
+		if (sb < 2 || eb < 2) throw std::invalid_argument("that's not gonna work buddy");
 		else return from_decimal(to_decimal(v, sb), eb);
 	}
 
