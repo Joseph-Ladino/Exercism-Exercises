@@ -6,9 +6,8 @@ namespace pascals_triangle {
 		std::vector<std::vector<int>> out;
 		
 		if (num >= 1) out.push_back({ 1 });
-		if (num >= 2) out.push_back({ 1, 1 });
 		
-		for (size_t i = 2; i < num; i++) {
+		for (size_t i = 1; i < num; i++) {
 			std::vector<int> temp = { 1 };
 			for (size_t j = 1; j < i; j++)
 				temp.push_back(out[i - 1][j - 1] + out[i - 1][j]);
