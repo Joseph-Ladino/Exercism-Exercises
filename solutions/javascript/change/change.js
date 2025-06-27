@@ -1,42 +1,56 @@
-//
-// This is only a SKELETON file for the 'Change' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 export class Change {
     calculate(coins, amount) {
+
+        // sorts the coin values from least to greatest
         coins.sort((a, b) => b - a);
 
         if (amount < 0) throw new Error('Negative totals are not allowed.');
 
-        var temp = amount, modifier = 0, options = [];
+        var temp_amount = amount, multiplier = 0, patterns = [];
 
+
+        // a messy little loop for finding just about all the patterns of coins that make up a given amount of money
         while (coins.length > 0) {
-            var out = [];
+            var pattern = [];
 
+            // a messy little loop for finding a patter n
             for (var i = 0; i < coins.length; i++) {
                 var coin = coins[i];
-                var step_up = (coins[i + 1]) ? coins[i + 1] * modifier : 0;
-                var temp2 = Math.abs(amount - step_up);
-                var coin_count = (temp2 - (temp2 % coin)) / coin;
 
-                if (coin_count >= 1 && amount >= coin_count * coin) {
-                    for (var j = 0; j < coin_count; j++) {
-                        out.push(coin);
-                    }
-                    amount -= coin * coin_count;
+                // this is used to allow a minimum for the next coin
+                var next = (coins[i + 1]) ? coins[i + 1] * multiplier : 0;
+                var max_amount = Math.abs(temp_amount - next);
+
+                // how many of this coin there is in the pattern
+                var coin_count = (max_amount - (max_amount % coin)) / coin;
+
+                // if the coin fits, add it to the array
+                if (coin_count >= 1 && temp_amount >= coin_count * coin) {
+                    pattern = pattern.concat(new Array(coin_count).fill(coin));
+                    temp_amount -= coin * coin_count;
                 }
             }
 
-            out.sort((a, b) => a - b);
+            // sorts the array of coins from least to greatest
+            pattern.sort((a, b) => a - b);
 
-            if (out.reduce((i, j) => i + j, 0) == temp) options.push(out);
-            amount = temp;
-            modifier++;
-            if (coins[0] * modifier > temp) { coins.shift(); modifier = 0 }
+            // this pattern is only valid if the coins add up to the correct amount
+            if (pattern.reduce((i, j) => i + j, 0) == amount) patterns.push(pattern);
+
+            temp_amount = amount;
+            multiplier++;
+
+            // if the smallest coin times the multiplier is greater than the amount, reset the multiplier and yeet the smallest coin
+            if (coins[0] * multiplier > amount) {
+                coins.shift();
+                multiplier = 0;
+            }
         }
 
-        if (options.length == 0 && amount != 0) throw new Error(`The total ${amount} cannot be represented in the given currency.`);
-        else return options.reduce((recurring, current) => (current.length <= recurring.length) ? current : recurring);
+        // throw errors if necessary
+        if (patterns.length == 0 && temp_amount != 0) throw new Error(`The total ${amount} cannot be represented in the given currency.`);
+
+        // return pattern with the least amount of coins
+        else return patterns.reduce((recurring, current) => (current.length <= recurring.length) ? current : recurring);
     }
 }
