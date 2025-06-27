@@ -8,9 +8,7 @@ bool phone_number::phone_number::isValid() {
 		n = n.substr(1);
 	}
 
-	std::string::size_type sz;
-
-	if (stoi(n.substr(0, 1), &sz) < 2 || stoi(n.substr(3, 1), &sz) < 2) return false;
+	if (stoi(area_code()) < 200 || stoi(exchange_code()) < 2000) return false;
 
 	return true;
 }
@@ -28,7 +26,7 @@ string phone_number::phone_number::area_code() {
 }
 
 string phone_number::phone_number::exchange_code() {
-	return n.substr(3, 3);
+	return n.substr(3, 4);
 }
 
 phone_number::phone_number::phone_number(string num) {
