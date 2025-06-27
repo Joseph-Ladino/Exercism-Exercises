@@ -12,12 +12,10 @@ export class Element {
 
 export class List {
 
-    constructor(arr = false) {
+    constructor(arr = []) {
         this.head = null;
 
-        if (arr) {
-            for (let i of arr) this.add(new Element(i));
-        }
+        for (let i of arr) this.add(new Element(i));
     }
 
     add(nextValue) {
