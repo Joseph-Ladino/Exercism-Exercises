@@ -9,8 +9,7 @@ namespace protein_translation {
 			for (auto p : strands) {
 				if (std::find(p.second.begin(), p.second.end(), s.substr(i, 3)) != p.second.end()) {
 					if (p.first == "ABORT") goto end;
-					
-					out.push_back(p.first);
+					else out.push_back(p.first);
 				}
 			}
 		}
