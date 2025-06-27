@@ -20,8 +20,8 @@ std::vector<int> round_down_scores(std::vector<double> student_scores) {
 int count_failed_students(std::vector<int> student_scores) {
     int failed_students { 0 };
 
-    for (auto i = 0; i < student_scores.size(); i++) 
-        failed_students += static_cast<int>(student_scores[i] <= 40);
+    for (auto score: student_scores) 
+        failed_students += static_cast<int>(score <= 40);
 
     return failed_students;
 }
