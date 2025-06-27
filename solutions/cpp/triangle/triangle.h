@@ -6,6 +6,7 @@ namespace triangle {
 
 	enum class flavor {
 		equilateral,
+		degenerate,
 		isosceles,
 		scalene
 	};
