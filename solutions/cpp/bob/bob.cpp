@@ -10,7 +10,7 @@ namespace bob {
 
 		bool yelling = !(std::regex_search(msg, std::regex("[a-z]"))) && (std::regex_search(msg, std::regex("[A-z]")));
 		
-		if (msg.find('?') == msg.size()-1) 
+		if (msg.back() == '?')
 			return ((yelling) ? "Calm down, I know what I'm doing!" : "Sure.");
 
 		return ((yelling) ? "Whoa, chill out!" : "Whatever.");
