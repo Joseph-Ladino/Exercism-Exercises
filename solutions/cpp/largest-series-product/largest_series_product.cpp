@@ -5,7 +5,7 @@ namespace largest_series_product {
 
 	int string_product(std::string_view str, size_t start_index, size_t span) {
 		int product = 1;
-		for (auto i = start_index; i < (start_index + span); i++) {
+		for (size_t i = start_index; i < (start_index + span); i++) {
 
 			char c = str[i];
 
@@ -31,7 +31,7 @@ namespace largest_series_product {
 		if (span == str_size) 
 			return string_product(str, 0, str_size);
 
-		for (auto i = 0; i <= str_size - span; i++) {
+		for (size_t i = 0; i <= str_size - span; i++) {
 			int local_product = string_product(str, i, span);
 
 			if (local_product > max_product) max_product = local_product;
