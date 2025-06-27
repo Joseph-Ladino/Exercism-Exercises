@@ -42,7 +42,8 @@ namespace run_length_encoding {
 		string out;
 
 		auto count = 1;
-		int i = 0;
+		size_t i = 0;
+
 		while (i < encoded.size()) {
 			auto c = encoded.at(i);
 			if (!isNum(c)) {
@@ -59,7 +60,6 @@ namespace run_length_encoding {
 			while (isNum(encoded.at(i))) {
 				i++;
 			}
-			
 		}
 
 		return out;
