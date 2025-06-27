@@ -16,13 +16,10 @@ namespace all_your_base {
 
 	std::vector<unsigned int> from_decimal(unsigned int n, unsigned int b) {
 		std::vector<unsigned int> out;
-		unsigned int t;
-		while (n != 0) {
-			t = n % b;
-			out.insert(out.begin(), t);
-			n -= t;
-			n /= b;
-		}
+
+		for (; n != 0; n /= b)
+			out.insert(out.begin(), n % b);
+		
 		return out;
 	}
 	
