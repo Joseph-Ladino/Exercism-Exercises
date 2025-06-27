@@ -22,17 +22,19 @@ namespace largest_series_product {
 		int max_product = 0;
 		auto str_size = str.size();
 
-		if (span > str_size) 
-			throw std::domain_error("Span cannot be larger than string length.");
+		size_t span_st = static_cast<size_t>(span);
 
 		if (span < 0)
 			throw std::domain_error("Span cannot be negative.");
 
-		if (span == str_size) 
+		if (span_st > str_size)
+			throw std::domain_error("Span cannot be larger than string length.");
+
+		if (span_st == str_size)
 			return string_product(str, 0, str_size);
 
 		for (size_t i = 0; i <= str_size - span; i++) {
-			int local_product = string_product(str, i, static_cast<size_t>(span));
+			int local_product = string_product(str, i, span_st);
 
 			if (local_product > max_product) max_product = local_product;
 		}
