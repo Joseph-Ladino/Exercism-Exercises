@@ -6,7 +6,7 @@
 using namespace std;
 
 namespace say {
-	static string single_digits[10] = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+	static string single_digits[10] = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 	static string double_digits[10] = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
 	static string suffixes[4] = { "", "thousand", "million", "billion" };
 

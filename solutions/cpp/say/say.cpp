@@ -52,12 +52,11 @@ string say::in_english(unsigned long long num) {
 
 	if (num >= 1000000000000 || num < 0) throw domain_error("number outside range");
 
-	int x = 0;
-
 	string out;
 
-	while (num != 0) {
-		int cur = num % 1000;
+	int cur;
+	for(int x = 0; num != 0; x++) {
+		cur = num % 1000;
 		string seg = three_digits(cur, x == 0 && ADD_INFORMAL_AND);
 
 		if (seg.size() > 0) {
@@ -65,9 +64,7 @@ string say::in_english(unsigned long long num) {
 			out.insert(0, seg + " ");
 		}
 
-		x++;
-		num -= cur;
-		num /= 1000;
+		num = (num - cur) / 1000;
 	}
 
 	if (out.size() == 0) return "zero";
